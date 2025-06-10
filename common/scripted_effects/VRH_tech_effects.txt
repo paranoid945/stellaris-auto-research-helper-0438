@@ -27,6 +27,7 @@ VRH_research_phi = {
 	remove_country_flag = VRH_tech_repeatable_weapon_type_energy_damage
 	remove_country_flag = VRH_tech_repeatable_weapon_type_energy_fire_rate
 	remove_country_flag = VRH_tech_cosmogenesis_thesis
+	remove_country_flag = VRH_tech_fallen_empire
 }
 VRH_refresh_phi = {
 	set_country_flag = VRH_tech_repeatable_improved_tile_energy_output
@@ -35,6 +36,7 @@ VRH_refresh_phi = {
 	set_country_flag = VRH_tech_repeatable_weapon_type_energy_damage
 	set_country_flag = VRH_tech_repeatable_weapon_type_energy_fire_rate
 	set_country_flag = VRH_tech_cosmogenesis_thesis
+	set_country_flag = VRH_tech_fallen_empire
 }
 VRH_research_soc = {
 	remove_country_flag = VRH_tech_repeatable_improved_tile_food_output

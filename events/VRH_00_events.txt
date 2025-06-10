@@ -142,6 +142,12 @@ country_event = {
 					TECH_NAME = tech_cosmogenesis_thesis
 				}
 			}
+			option = {
+				trigger = { has_country_flag = VRH_open_physics }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_fallen_empire
+				}
+			}
 		########################################################################
 		option = {
 			name = VRH_all_tech_banned
