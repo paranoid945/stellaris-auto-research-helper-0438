@@ -8,5 +8,7 @@
 
 本mod是自用，没准备放创意工坊，如果想继续修改请联系香草科研助手作者或者自己new一个新的。
 
-mod如何在本地使用：以para作为本机用户名为例：将文件夹放在C:\Users\paran\Documents\Paradox Interactive\Stellaris\mod\stellaris-auto-research-helper-0438，之后在把auto-research-helper-0438.mod拷出来放外面，并且修改里面的目录位置。之后应该就在mod里出现了。
+mod如何在本地使用：以paran是本机用户名为例：将文件夹放在C:\Users\paran\Documents\Paradox Interactive\Stellaris\mod\stellaris-auto-research-helper-0438，之后在把auto-research-helper-0438.mod拷出来放外面，并且修改里面的目录位置。之后应该就在mod里出现了。
+
+本来想自己写一个新的，以为可以控制科技的选择逻辑，这样如果自己的条件不满足则随机选一个，发现这游戏的mod貌似不支持修改自动科研的逻辑。
 
