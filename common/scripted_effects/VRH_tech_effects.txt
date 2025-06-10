@@ -1,0 +1,140 @@
+VRH_research_eng = {
+	remove_country_flag = VRH_tech_repeatable_improved_tile_mineral_output
+	remove_country_flag = VRH_tech_repeatable_improved_armor_output
+	remove_country_flag = VRH_tech_repeatable_improved_military_station_damage
+	remove_country_flag = VRH_tech_repeatable_improved_military_station_health
+	remove_country_flag = VRH_tech_repeatable_reduced_building_time
+	remove_country_flag = VRH_tech_repeatable_weapon_type_explosive_damage
+	remove_country_flag = VRH_tech_repeatable_weapon_type_explosive_fire_rate
+	remove_country_flag = VRH_tech_repeatable_weapon_type_kinetic_damage
+	remove_country_flag = VRH_tech_repeatable_weapon_type_kinetic_fire_rate
+}
+VRH_refresh_eng = {
+	set_country_flag = VRH_tech_repeatable_improved_tile_mineral_output
+	set_country_flag = VRH_tech_repeatable_improved_armor_output
+	set_country_flag = VRH_tech_repeatable_improved_military_station_damage
+	set_country_flag = VRH_tech_repeatable_improved_military_station_health
+	set_country_flag = VRH_tech_repeatable_reduced_building_time
+	set_country_flag = VRH_tech_repeatable_weapon_type_explosive_damage
+	set_country_flag = VRH_tech_repeatable_weapon_type_explosive_fire_rate
+	set_country_flag = VRH_tech_repeatable_weapon_type_kinetic_damage
+	set_country_flag = VRH_tech_repeatable_weapon_type_kinetic_fire_rate
+}
+VRH_research_phi = {
+	remove_country_flag = VRH_tech_repeatable_improved_tile_energy_output
+	remove_country_flag = VRH_tech_repeatable_improved_shield_output
+	remove_country_flag = VRH_tech_repeatable_reduced_building_cost
+	remove_country_flag = VRH_tech_repeatable_weapon_type_energy_damage
+	remove_country_flag = VRH_tech_repeatable_weapon_type_energy_fire_rate
+	remove_country_flag = VRH_tech_cosmogenesis_thesis
+}
+VRH_refresh_phi = {
+	set_country_flag = VRH_tech_repeatable_improved_tile_energy_output
+	set_country_flag = VRH_tech_repeatable_improved_shield_output
+	set_country_flag = VRH_tech_repeatable_reduced_building_cost
+	set_country_flag = VRH_tech_repeatable_weapon_type_energy_damage
+	set_country_flag = VRH_tech_repeatable_weapon_type_energy_fire_rate
+	set_country_flag = VRH_tech_cosmogenesis_thesis
+}
+VRH_research_soc = {
+	remove_country_flag = VRH_tech_repeatable_improved_tile_food_output
+	remove_country_flag = VRH_tech_repeatable_improved_core_system_cap
+	remove_country_flag = VRH_tech_repeatable_improved_army_damage
+	remove_country_flag = VRH_tech_repeatable_improved_army_health
+	remove_country_flag = VRH_tech_repeatable_naval_cap
+	remove_country_flag = VRH_tech_repeatable_command_limit
+	remove_country_flag = VRH_tech_repeatable_improved_starbase_capacity
+	remove_country_flag = VRH_tech_repeatable_improved_leader_life_span
+	remove_country_flag = VRH_tech_repeatable_weapon_type_strike_craft_fire_damage
+	remove_country_flag = VRH_tech_repeatable_weapon_type_strike_craft_fire_rate
+}
+VRH_refresh_soc = {
+	set_country_flag = VRH_tech_repeatable_improved_tile_food_output
+	set_country_flag = VRH_tech_repeatable_improved_core_system_cap
+	set_country_flag = VRH_tech_repeatable_improved_army_damage
+	set_country_flag = VRH_tech_repeatable_improved_army_health
+	set_country_flag = VRH_tech_repeatable_naval_cap
+	set_country_flag = VRH_tech_repeatable_command_limit
+	set_country_flag = VRH_tech_repeatable_improved_starbase_capacity
+	set_country_flag = VRH_tech_repeatable_improved_leader_life_span
+	set_country_flag = VRH_tech_repeatable_weapon_type_strike_craft_fire_damage
+	set_country_flag = VRH_tech_repeatable_weapon_type_strike_craft_fire_rate
+}
+
+VRH_research_system_initialize = {
+	set_variable = {
+		which = VRH_$TECH_TYPE$_need
+		value = @repeatableTechBaseCost
+	}
+}
+VRH_research_speed_set = {
+	export_modifier_to_variable = {
+		modifier = $MODIFIER_TYPE$
+		variable = VRH_$MODIFIER_TYPE$_present
+	}
+	set_variable = {
+		which = VRH_$MODIFIER_TYPE$_base
+		value = $SET_VALUE$
+	}
+	change_variable = {
+		which = VRH_$MODIFIER_TYPE$_base
+		value = VRH_$MODIFIER_TYPE$_present
+	}
+	add_modifier = {
+		modifier = VRH_$MODIFIER_TYPE$_base
+		multiplier = VRH_$MODIFIER_TYPE$_base
+	}
+}
+VRH_research_ability_calculate = {
+	export_resource_income_to_variable = {
+		resource = $RESOURCE_TYPE$
+		variable = VRH_$RESOURCE_TYPE$_income_present
+	}
+	change_variable = {
+		which = VRH_$MODIFIER_TYPE$_present
+		value = VRH_all_technology_research_speed_present
+	}
+	multiply_variable = {
+		which = VRH_$RESOURCE_TYPE$_income_present
+		value = VRH_$MODIFIER_TYPE$_present
+	}
+}
+VRH_research_progress_calculate = {
+	change_variable = {
+		which = VRH_$RESOURCE_TYPE$_stockpile_present
+		value = VRH_$RESOURCE_TYPE$_income_present
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = VRH_$RESOURCE_TYPE$_stockpile_present
+				value >= VRH_$TECH_TYPE$_need
+			}
+		}
+		multiply_variable = {
+			which = VRH_$TECH_TYPE$_need
+			value = -1
+		}
+		change_variable = {
+			which = VRH_$RESOURCE_TYPE$_stockpile_present
+			value = VRH_$TECH_TYPE$_need
+		}
+		multiply_variable = {
+			which = VRH_$TECH_TYPE$_need
+			value = -1
+		}
+		change_variable = {
+			which = VRH_$TECH_TYPE$_level
+			value = 1
+		}
+		change_variable = {
+			which = VRH_$TECH_TYPE$_need
+			value = @repeatableTechLevelCost
+		}
+		remove_modifier = VRH_$TECH_TYPE$
+		add_modifier = {
+			modifier = VRH_$TECH_TYPE$
+			mult = VRH_$TECH_TYPE$_level
+		}
+	}
+}

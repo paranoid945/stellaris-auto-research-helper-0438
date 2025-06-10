@@ -1,0 +1,72 @@
+VRH_all_technology_research_speed_base = {
+	all_technology_research_speed = -1
+}
+VRH_country_physics_tech_research_speed_base = {
+	country_physics_tech_research_speed = -1
+}
+VRH_country_society_tech_research_speed_base = {
+	country_society_tech_research_speed = -1
+}
+VRH_country_engineering_tech_research_speed_base = {
+	country_engineering_tech_research_speed = -1
+}
+#物理学
+VRH_tech_repeatable_improved_tile_energy_output = {
+	planet_jobs_energy_produces_mult = 0.05
+}
+VRH_tech_repeatable_improved_shield_output = {
+	ship_shield_mult = 0.05
+}
+VRH_tech_repeatable_weapon_type_energy_damage = {
+	weapon_type_energy_weapon_damage_mult = 0.05
+}
+VRH_tech_repeatable_weapon_type_energy_fire_rate = {
+	weapon_type_energy_weapon_fire_rate_mult = 0.05
+}
+#社会学
+VRH_tech_repeatable_improved_tile_food_output = {
+	planet_jobs_food_produces_mult = 0.05
+}
+VRH_tech_repeatable_improved_core_system_cap = {
+	country_unity_produces_mult = 0.05
+}
+VRH_tech_repeatable_improved_army_damage = {
+	army_damage_mult = 0.1
+}
+VRH_tech_repeatable_improved_army_health = {
+	army_health = 0.1
+}
+VRH_tech_repeatable_improved_leader_life_span = {
+	leader_lifespan_add = 5
+}
+VRH_tech_repeatable_weapon_type_strike_craft_fire_damage = {
+	weapon_type_strike_craft_weapon_damage_mult = 0.10
+}
+VRH_tech_repeatable_weapon_type_strike_craft_fire_rate = {
+	weapon_type_strike_craft_weapon_fire_rate_mult = 0.10
+}
+#工程学
+VRH_tech_repeatable_improved_tile_mineral_output = {
+	planet_jobs_minerals_produces_mult = 0.05
+}
+VRH_tech_repeatable_improved_military_station_damage = {
+	shipclass_military_station_damage_mult = 0.1
+}
+VRH_tech_repeatable_improved_military_station_health = {
+	shipclass_military_station_hull_mult = 0.1
+}
+VRH_tech_repeatable_improved_armor_output = {
+	ship_armor_mult = 0.05
+}
+VRH_tech_repeatable_weapon_type_explosive_damage = {
+	weapon_type_explosive_weapon_damage_mult = 0.05
+}
+VRH_tech_repeatable_weapon_type_explosive_fire_rate = {
+	weapon_type_explosive_weapon_fire_rate_mult = 0.05
+}
+VRH_tech_repeatable_weapon_type_kinetic_damage = {
+	weapon_type_kinetic_weapon_damage_mult = 0.05
+}
+VRH_tech_repeatable_weapon_type_kinetic_fire_rate = {
+	weapon_type_kinetic_weapon_fire_rate_mult = 0.05
+}

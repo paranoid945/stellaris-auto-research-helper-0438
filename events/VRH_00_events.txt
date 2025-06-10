@@ -1,0 +1,658 @@
+namespace = VRH_event
+
+country_event = {
+	id = VRH_event.1
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		NOT = {
+			has_country_flag = VRH_variable_system_first
+		}
+	}
+	immediate = {
+		VRH_research_system_initialize = { 
+			TECH_TYPE = tech_repeatable_improved_tile_energy_output
+		}
+		VRH_research_system_initialize = { 
+			TECH_TYPE = tech_repeatable_improved_shield_output
+		}
+		VRH_research_system_initialize = { 
+			TECH_TYPE = tech_repeatable_weapon_type_energy_damage
+		}
+		VRH_research_system_initialize = { 
+			TECH_TYPE = tech_repeatable_weapon_type_energy_fire_rate
+		}
+		VRH_research_system_initialize = { 
+			TECH_TYPE = tech_repeatable_improved_tile_food_output
+		}
+		VRH_research_system_initialize = { 
+			TECH_TYPE = tech_repeatable_improved_core_system_cap
+		}
+		VRH_research_system_initialize = { 
+			TECH_TYPE = tech_repeatable_improved_army_damage
+		}
+		VRH_research_system_initialize = { 
+			TECH_TYPE = tech_repeatable_improved_army_health
+		}
+		VRH_research_system_initialize = { 
+			TECH_TYPE = tech_repeatable_improved_leader_life_span
+		}
+		VRH_research_system_initialize = { 
+			TECH_TYPE = tech_repeatable_weapon_type_strike_craft_fire_damage
+		}
+		VRH_research_system_initialize = { 
+			TECH_TYPE = tech_repeatable_weapon_type_strike_craft_fire_rate
+		}
+		VRH_research_system_initialize = { 
+			TECH_TYPE = tech_repeatable_improved_tile_mineral_output
+		}
+		VRH_research_system_initialize = { 
+			TECH_TYPE = tech_repeatable_improved_military_station_damage
+		}
+		VRH_research_system_initialize = { 
+			TECH_TYPE = tech_repeatable_improved_military_station_health
+		}
+		VRH_research_system_initialize = { 
+			TECH_TYPE = tech_repeatable_improved_armor_output
+		}
+		VRH_research_system_initialize = { 
+			TECH_TYPE = tech_repeatable_weapon_type_explosive_damage
+		}
+		VRH_research_system_initialize = { 
+			TECH_TYPE = tech_repeatable_weapon_type_explosive_fire_rate
+		}
+		VRH_research_system_initialize = { 
+			TECH_TYPE = tech_repeatable_weapon_type_kinetic_damage
+		}
+		VRH_research_system_initialize = { 
+			TECH_TYPE = tech_repeatable_weapon_type_kinetic_fire_rate
+		}
+		set_country_flag = VRH_variable_system_first
+	}
+}
+#菜单
+country_event = {
+	id = VRH_event.2
+	title = VRH_event.2.title
+	desc = VRH_event.2.desc
+
+	diplomatic = yes
+	diplomatic_title = VRH_d_title
+	custom_gui = VRH_UI
+	picture_event_data = {
+		room = "crisis_room"
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = VRH_event.2.phi
+		custom_gui = VRH_option
+		trigger = { has_country_flag = VRH_open_physics }
+		hidden_effect = {
+			remove_country_flag = VRH_open_physics
+			country_event = { id = VRH_event.2 }
+		}
+	}
+	option = {
+		name = VRH_event.2.phi
+		custom_gui = VRH_option_up
+		trigger = { NOT = { has_country_flag = VRH_open_physics } }
+		hidden_effect = {
+			set_country_flag = VRH_open_physics
+			country_event = { id = VRH_event.2 }
+		}
+	}
+	#########################################################
+	#物理科技
+	#########################################################
+			option = {
+				trigger = { has_country_flag = VRH_open_physics }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_improved_tile_energy_output
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_physics }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_improved_shield_output
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_physics }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_weapon_type_energy_damage
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_physics }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_weapon_type_energy_fire_rate
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_physics }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_reduced_building_cost
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_physics }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_cosmogenesis_thesis
+				}
+			}
+		########################################################################
+		option = {
+			name = VRH_all_tech_banned
+			custom_gui = enclave_artist_option
+			trigger = { has_country_flag = VRH_open_physics }
+			hidden_effect = { VRH_refresh_phi = yes country_event = { id = VRH_event.2 } }
+		}
+		option = {
+			name = VRH_all_tech_research
+			custom_gui = enclave_artist_option
+			trigger = { has_country_flag = VRH_open_physics }
+			hidden_effect = { VRH_research_phi = yes country_event = { id = VRH_event.2 } }
+		}
+	#########################################################
+	option = {
+		name = VRH_event.2.soc
+		custom_gui = VRH_option
+		trigger = { has_country_flag = VRH_open_society }
+		hidden_effect = {
+			remove_country_flag = VRH_open_society
+			country_event = { id = VRH_event.2 }
+		}
+	}
+	option = {
+		name = VRH_event.2.soc
+		custom_gui = VRH_option_up
+		trigger = { NOT = { has_country_flag = VRH_open_society } }
+		hidden_effect = {
+			set_country_flag = VRH_open_society
+			country_event = { id = VRH_event.2 }
+		}
+	}
+	#########################################################
+	#社会科技
+	#########################################################
+			option = {
+				trigger = { has_country_flag = VRH_open_society }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_improved_tile_food_output
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_society }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_improved_core_system_cap
+				}
+			}
+			#option = {
+			#	name = tech_repeatable_improved_edict_length
+			#	if = {
+			#		limit = {
+			#			has_country_flag = VRH_tech_repeatable_improved_edict_length
+			#		}
+			#		custom_tooltip = VRH_cannot_research
+			#	}
+			#	else = {
+			#		custom_tooltip = VRH_can_research
+			#	}
+			#	hidden_effect = {
+			#		if = {
+			#			limit = { 
+			#				has_country_flag = VRH_tech_repeatable_improved_edict_length
+			#			}
+			#			remove_country_flag = VRH_tech_repeatable_improved_edict_length
+			#		}
+			#		else = {
+			#			set_country_flag = VRH_tech_repeatable_improved_edict_length
+			#		}
+			#	}
+			#}
+			option = {
+				trigger = { has_country_flag = VRH_open_society }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_improved_army_damage
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_society }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_improved_army_health
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_society }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_improved_leader_life_span
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_society }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_naval_cap
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_society }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_command_limit
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_society }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_improved_starbase_capacity
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_society }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_weapon_type_strike_craft_fire_damage
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_society }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_weapon_type_strike_craft_fire_rate
+				}
+			}
+		########################################################################
+		option = {
+			trigger = { has_country_flag = VRH_open_society }
+			custom_gui = enclave_artist_option
+			name = VRH_all_tech_banned
+			hidden_effect = { VRH_refresh_soc = yes country_event = { id = VRH_event.2 } }
+		}
+		option = {
+			trigger = { has_country_flag = VRH_open_society }
+			custom_gui = enclave_artist_option
+			name = VRH_all_tech_research
+			hidden_effect = { VRH_research_soc = yes country_event = { id = VRH_event.2 } }
+		}
+	########################################################################
+	option = {
+		name = VRH_event.2.eng
+		custom_gui = VRH_option
+		trigger = { has_country_flag = VRH_open_engineering }
+		hidden_effect = {
+			remove_country_flag = VRH_open_engineering
+			country_event = { id = VRH_event.2 }
+		}
+	}
+	option = {
+		name = VRH_event.2.eng
+		custom_gui = VRH_option_up
+		trigger = { NOT = { has_country_flag = VRH_open_engineering } }
+		hidden_effect = {
+			set_country_flag = VRH_open_engineering
+			country_event = { id = VRH_event.2 }
+		}
+	}
+	#########################################################
+	#工程科技
+	#########################################################
+			option = { 
+				trigger = { has_country_flag = VRH_open_engineering }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_improved_tile_mineral_output
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_engineering }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_improved_military_station_damage
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_engineering }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_improved_military_station_health
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_engineering }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_improved_armor_output
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_engineering }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_weapon_type_explosive_damage
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_engineering }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_weapon_type_explosive_fire_rate
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_engineering }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_weapon_type_kinetic_damage
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_engineering }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_weapon_type_kinetic_fire_rate
+				}
+			}
+			option = {
+				trigger = { has_country_flag = VRH_open_engineering }
+				inline_script = { script = "VRH_tech_option"
+					TECH_NAME = tech_repeatable_reduced_building_time
+				}
+			}
+		########################################################################
+		option = {
+			trigger = { has_country_flag = VRH_open_engineering }
+			custom_gui = enclave_artist_option
+			name = VRH_all_tech_banned
+			hidden_effect = { VRH_refresh_eng = yes country_event = { id = VRH_event.2 } }
+		}
+		option = {
+			trigger = { has_country_flag = VRH_open_engineering }
+			custom_gui = enclave_artist_option
+			name = VRH_all_tech_research
+			hidden_effect = { VRH_research_eng = yes country_event = { id = VRH_event.2 } }
+		}
+	option = {
+		name = VRH_variable_system
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = VRH_variable_system }
+				remove_country_flag = VRH_variable_system
+				remove_modifier = VRH_all_technology_research_speed_base
+				remove_modifier = VRH_country_physics_tech_research_speed_base
+				remove_modifier = VRH_country_society_tech_research_speed_base
+				remove_modifier = VRH_country_engineering_tech_research_speed_base
+				custom_tooltip = VRH_variable_system_close
+			}
+			else = {
+				set_country_flag = VRH_variable_system
+				custom_tooltip = VRH_variable_system_open
+			}
+			country_event = {
+				id = VRH_event.1
+			}
+			country_event = {
+				id = VRH_event.2
+			}
+		}
+	}
+	option = {
+		name = VRH_exit
+		default_hide_option = yes
+	}
+}
+
+#循环层数变量化系统
+#科研能力统计
+country_event = {
+	id = VRH_event.100
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_country_flag = VRH_variable_system
+	}
+	immediate = {
+		country_event = { id = VRH_event.101 days = 3 }
+	}
+}
+country_event = {
+	id = VRH_event.101
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+	}
+	immediate = {
+		remove_modifier = VRH_all_technology_research_speed_base
+		remove_modifier = VRH_country_physics_tech_research_speed_base
+		remove_modifier = VRH_country_society_tech_research_speed_base
+		remove_modifier = VRH_country_engineering_tech_research_speed_base
+		country_event = { id = VRH_event.102 days = 1 }
+	}
+}
+country_event = {
+	id = VRH_event.102
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_country_flag = VRH_variable_system
+	}
+	immediate = {
+		VRH_research_speed_set = { 
+			MODIFIER_TYPE = all_technology_research_speed
+			SET_VALUE = 2
+		}
+		VRH_research_speed_set = { 
+			MODIFIER_TYPE = country_physics_tech_research_speed
+			SET_VALUE = 0
+		}
+		VRH_research_speed_set = { 
+			MODIFIER_TYPE = country_society_tech_research_speed
+			SET_VALUE = 0
+		}
+		VRH_research_speed_set = { 
+			MODIFIER_TYPE = country_engineering_tech_research_speed
+			SET_VALUE = 0
+		}
+		VRH_research_ability_calculate = {
+			MODIFIER_TYPE = country_physics_tech_research_speed
+			RESOURCE_TYPE = physics_research
+		}
+		VRH_research_ability_calculate = {
+			MODIFIER_TYPE = country_society_tech_research_speed
+			RESOURCE_TYPE = society_research
+		}
+		VRH_research_ability_calculate = {
+			MODIFIER_TYPE = country_engineering_tech_research_speed
+			RESOURCE_TYPE = engineering_research
+		}
+		random_list = {
+			#物理学
+			1 = {
+				modifier = {
+					add = -1
+					has_country_flag = VRH_tech_repeatable_improved_tile_energy_output
+				}
+				VRH_research_progress_calculate = {
+					TECH_TYPE = tech_repeatable_improved_tile_energy_output
+					RESOURCE_TYPE = physics_research
+				}
+			}
+			1 = {
+				modifier = {
+					add = -1
+					has_country_flag = VRH_tech_repeatable_improved_shield_output
+				}
+				VRH_research_progress_calculate = {
+					TECH_TYPE = tech_repeatable_improved_shield_output
+					RESOURCE_TYPE = physics_research
+				}
+			}
+			1 = {
+				modifier = {
+					add = -1
+					has_country_flag = VRH_tech_repeatable_weapon_type_energy_damage
+				}
+				VRH_research_progress_calculate = {
+					TECH_TYPE = tech_repeatable_weapon_type_energy_damage
+					RESOURCE_TYPE = physics_research
+				}
+			}
+			1 = {
+				modifier = {
+					add = -1
+					has_country_flag = VRH_tech_repeatable_weapon_type_energy_fire_rate
+				}
+				VRH_research_progress_calculate = {
+					TECH_TYPE = tech_repeatable_weapon_type_energy_fire_rate
+					RESOURCE_TYPE = physics_research
+				}
+			}
+		}
+		random_list = {
+			#社会学
+			1 = {
+				modifier = {
+					add = -1
+					has_country_flag = VRH_tech_repeatable_improved_tile_food_output
+				}
+				VRH_research_progress_calculate = {
+					TECH_TYPE = tech_repeatable_improved_tile_food_output
+					RESOURCE_TYPE = society_research
+				}
+			}
+			1 = {
+				modifier = {
+					add = -1
+					has_country_flag = VRH_tech_repeatable_improved_core_system_cap
+				}
+				VRH_research_progress_calculate = {
+					TECH_TYPE = tech_repeatable_improved_core_system_cap
+					RESOURCE_TYPE = society_research
+				}
+			}
+			1 = {
+				modifier = {
+					add = -1
+					has_country_flag = VRH_tech_repeatable_improved_army_damage
+				}
+				VRH_research_progress_calculate = {
+					TECH_TYPE = tech_repeatable_improved_army_damage
+					RESOURCE_TYPE = society_research
+				}
+			}
+			1 = {
+				modifier = {
+					add = -1
+					has_country_flag = VRH_tech_repeatable_improved_army_health
+				}
+				VRH_research_progress_calculate = {
+					TECH_TYPE = tech_repeatable_improved_army_health
+					RESOURCE_TYPE = society_research
+				}
+			}
+			1 = {
+				modifier = {
+					add = -1
+					has_country_flag = VRH_tech_repeatable_improved_leader_life_span
+				}
+				VRH_research_progress_calculate = {
+					TECH_TYPE = tech_repeatable_improved_leader_life_span
+					RESOURCE_TYPE = society_research
+				}
+			}
+			1 = {
+				modifier = {
+					add = -1
+					has_country_flag = VRH_tech_repeatable_weapon_type_strike_craft_fire_damage
+				}
+				VRH_research_progress_calculate = {
+					TECH_TYPE = tech_repeatable_weapon_type_strike_craft_fire_damage
+					RESOURCE_TYPE = society_research
+				}
+			}
+			1 = {
+				modifier = {
+					add = -1
+					has_country_flag = VRH_tech_repeatable_weapon_type_strike_craft_fire_rate
+				}
+				VRH_research_progress_calculate = {
+					TECH_TYPE = tech_repeatable_weapon_type_strike_craft_fire_rate
+					RESOURCE_TYPE = society_research
+				}
+			}
+		}
+		random_list = {
+			#工程学
+			1 = {
+				modifier = {
+					add = -1
+					has_country_flag = VRH_tech_repeatable_improved_tile_mineral_output
+				}
+				VRH_research_progress_calculate = {
+					TECH_TYPE = tech_repeatable_improved_tile_mineral_output
+					RESOURCE_TYPE = engineering_research
+				}
+			}
+			1 = {
+				modifier = {
+					add = -1
+					has_country_flag = VRH_tech_repeatable_improved_military_station_damage
+				}
+				VRH_research_progress_calculate = {
+					TECH_TYPE = tech_repeatable_improved_military_station_damage
+					RESOURCE_TYPE = engineering_research
+				}
+			}
+			1 = {
+				modifier = {
+					add = -1
+					has_country_flag = VRH_tech_repeatable_improved_military_station_health
+				}
+				VRH_research_progress_calculate = {
+					TECH_TYPE = tech_repeatable_improved_military_station_health
+					RESOURCE_TYPE = engineering_research
+				}
+			}
+			1 = {
+				modifier = {
+					add = -1
+					has_country_flag = VRH_tech_repeatable_improved_armor_output
+				}
+				VRH_research_progress_calculate = {
+					TECH_TYPE = tech_repeatable_improved_armor_output
+					RESOURCE_TYPE = engineering_research
+				}
+			}
+			1 = {
+				modifier = {
+					add = -1
+					has_country_flag = VRH_tech_repeatable_weapon_type_explosive_damage
+				}
+				VRH_research_progress_calculate = {
+					TECH_TYPE = tech_repeatable_weapon_type_explosive_damage
+					RESOURCE_TYPE = engineering_research
+				}
+			}
+			1 = {
+				modifier = {
+					add = -1
+					has_country_flag = VRH_tech_repeatable_weapon_type_explosive_fire_rate
+				}
+				VRH_research_progress_calculate = {
+					TECH_TYPE = tech_repeatable_weapon_type_explosive_fire_rate
+					RESOURCE_TYPE = engineering_research
+				}
+			}
+			1 = {
+				modifier = {
+					add = -1
+					has_country_flag = VRH_tech_repeatable_weapon_type_kinetic_damage
+				}
+				VRH_research_progress_calculate = {
+					TECH_TYPE = tech_repeatable_weapon_type_kinetic_damage
+					RESOURCE_TYPE = engineering_research
+				}
+			}
+			1 = {
+				modifier = {
+					add = -1
+					has_country_flag = VRH_tech_repeatable_weapon_type_kinetic_fire_rate
+				}
+				VRH_research_progress_calculate = {
+					TECH_TYPE = tech_repeatable_weapon_type_kinetic_fire_rate
+					RESOURCE_TYPE = engineering_research
+				}
+			}
+		}
+	}
+}

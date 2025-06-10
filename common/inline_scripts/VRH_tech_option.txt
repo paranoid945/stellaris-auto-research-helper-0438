@@ -1,0 +1,18 @@
+name = $TECH_NAME$
+custom_gui = enclave_curator_option
+custom_tooltip = ['technology:$TECH_NAME$']
+if = {
+	limit = {
+		has_country_flag = VRH_$TECH_NAME$
+	}
+	custom_tooltip = VRH_cannot_research
+}
+else = { custom_tooltip = VRH_can_research }
+hidden_effect = {
+	if = {
+		limit = { has_country_flag = VRH_$TECH_NAME$ }
+		remove_country_flag = VRH_$TECH_NAME$
+	}
+	else = { set_country_flag = VRH_$TECH_NAME$ }
+	country_event = { id = VRH_event.2 }
+}
